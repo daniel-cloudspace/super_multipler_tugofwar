@@ -4,6 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">	
     <script type="text/javascript" src="/socket.io/socket.io.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/paper.js"></script>
     <script type="text/javascript">
       var a, b, my_id;
       window.addEventListener('load', function() {
@@ -27,9 +28,26 @@
                 keyCode: e.keyCode
             });
         }, false);
-    });
+      });
+      var a=5;
     </script>
+    <script type="text/paperscript" canvas="myCanvas">
+        console.log(a)
+        // Create a Paper.js Path to draw a line into it:
+        var path = new Path();
+        // Give the stroke a color
+        path.strokeColor = 'black';
+        var start = new Point(100, 100);
+        // Move to start and draw a line from there
+        path.moveTo(start);
+        // Note the plus operator on Point objects.
+        // PaperScript does that for us, and much more!
+    	path.lineTo(start + [ 100, -50 ]);
+    </script>
+
 </style>
 </head>
-<body></body>
+<body>
+  <canvas id="myCanvas" resize></canvas>
+</body>
 </html>
